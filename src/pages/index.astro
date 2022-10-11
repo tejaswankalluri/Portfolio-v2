@@ -1,0 +1,354 @@
+---
+import BaseHead, { metacontent } from '../components/BaseHead.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
+import "../styles/index.css"
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} content={metacontent.index}/>
+</head>
+
+<body>
+    <!--===== HEADER =====-->
+	<Navbar />
+
+    <main class="l-main">
+        <!--===== HOME =====-->
+        <section class="home bd-grid" id="home">
+            <div class="home__data">
+                <h1 class="home__title">Hi,<br>I'am <span class="home__title-color">Tejaswan</span><br> Web Developer
+                </h1>
+
+                <a href="https://drive.google.com/file/d/1IhdAOP6xTkaWlcApjwj7baC_byQ2Ep0L/view?usp=sharing"
+                    class="button">Download Resume </a>
+            </div>
+
+            <div class="home__social">
+                <a href="https://www.linkedin.com/in/tejaswan-kalluri/" class="home__social-icon"><i
+                        class='bx bxl-linkedin'></i></a>
+                <a href="https://github.com/tejaswankalluri" class="home__social-icon"><i class='bx bxl-github'></i></a>
+                <a href="https://dev.to/tejaswan" class="home__social-icon"><i class='bx bxl-dev-to'></i></a>
+            </div>
+
+            <div class="home__img">
+                <img src="assets/img/perfil.png" alt="">
+            </div>
+        </section>
+
+        <!--===== ABOUT =====-->
+        <section class="about section " id="about">
+            <h2 class="section-title">About</h2>
+
+            <div class="about__container bd-grid">
+                <div class="about__img">
+                    <img src="assets/img/about.jpg" alt="">
+                </div>
+
+                <div>
+                    <h2 class="about__subtitle">I'am Tejaswan</h2>
+                    <p class="about__text">I am a computer science student at Ellenki college of engineering.
+                        I am very passionate about web development. I have very good skills in development</p>
+                </div>
+            </div>
+        </section>
+
+        <!--===== SKILLS =====-->
+        <section class="skills section" id="skills">
+            <h2 class="section-title"> Skills</h2>
+            <div class="skills__container bd-grid">
+                <div>
+                    <h2 class="skills__subtitle">Technical Skills</h2>
+                    <p class="skills__text">skills are very important for technical domain. Mostly development skills
+                        are very important as a software engineer.Check out my skills.
+                    </p>
+                    <div class="skills__data">
+                        <div class="skills__names">
+                            <i class="devicon-html5-plain colored"></i>
+                            <span class="skills__name">HTML5</span>
+                        </div>
+                    </div>
+                    <div class="skills__data">
+                        <div class="skills__names">
+                            <i class="devicon-css3-plain colored"></i>
+                            <span class="skills__name">CSS3</span>
+                        </div>
+                    </div>
+                    <div class="skills__data">
+                        <div class="skills__names">
+                            <i class="devicon-javascript-plain colored"></i>
+                            <span class="skills__name">JAVASCRIPT</span>
+                        </div>
+                    </div>
+                    <div class="skills__data">
+                        <div class="skills__names">
+                            <i class="devicon-react-original colored"></i>
+                            <span class="skills__name">REACT JS</span>
+                        </div>
+                    </div>
+                    <div class="skills__data">
+                        <div class="skills__names">
+                            <i class="devicon-nodejs-plain colored"></i>
+                            <span class="skills__name">NODE JS</span>
+                        </div>
+                    </div>
+                    <div class="skills__data">
+                        <div class="skills__names">
+                            <i class="devicon-mongodb-plain colored"></i>
+                            <span class="skills__name">MONGODB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills__container bd-grid">
+                    <div>
+                        <h2 class="skills__subtitle">Tools & <br>Frameworks</h2>
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <i class="devicon-nextjs-line colored"></i>
+                                <span class="skills__name">NEXT JS</span>
+                            </div>
+                        </div>
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <i class="devicon-typescript-plain colored"></i>
+                                <span class="skills__name">TYPESCRIPT</span>
+                            </div>
+                        </div>
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <i class="devicon-sass-original colored"></i>
+                                <span class="skills__name">SASS</span>
+                            </div>
+                        </div>
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <i class="devicon-git-plain colored"></i>
+                                <span class="skills__name">GIT</span>
+                            </div>
+                        </div>
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <i class="devicon-postgresql-plain colored"></i>
+                                <span class="skills__name">POSTGRESQL</span>
+                            </div>
+                        </div>
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <i class="devicon-windows8-original colored"></i>
+                                <span class="skills__name">WINDOWS</span>
+                            </div>
+                        </div>
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <i class="devicon-linux-plain colored"></i>
+                                <span class="skills__name">LINUX</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="skills__container ">
+                        <div>
+                            <h2 class="skills__subtitle">Languages</h2>
+
+                            <div class="skills__data">
+                                <div class="skills__names">
+                                    <i class='devicon-java-plain colored'></i>
+                                    <span class="skills__name">JAVA</span>
+                                </div>
+                                <div class="skills__bar skills__java">
+
+                                </div>
+                            </div>
+                            <div class="skills__data">
+                                <div class="skills__names">
+                                    <i class='devicon-cplusplus-plain colored'></i>
+                                    <span class="skills__name">C++</span>
+                                </div>
+                                <div class="skills__bar skills__cplus">
+
+                                </div>
+                            </div>
+                            <div class="skills__data">
+                                <div class="skills__names">
+                                    <i class='devicon-python-plain colored'></i>
+                                    <span class="skills__name">PYTHON</span>
+                                </div>
+                                <div class="skills__bar skills__python">
+
+                                </div>
+                            </div>
+                            <div class="skills__data">
+                                <div class="skills__names">
+                                    <i class='devicon-c-plain colored'></i>
+                                    <span class="skills__name">C PROGRAMMING</span>
+                                </div>
+                                <div class="skills__bar skills__c">
+
+                                </div>
+                            </div>
+                            <div class="skills__data">
+                                <div class="skills__names">
+                                    <i class='devicon-php-plain colored'></i>
+                                    <span class="skills__name">PHP</span>
+                                </div>
+                                <div class="skills__bar skills__php">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+				</div>
+			</div>
+        </section>
+        <!--===== WORK =====-->
+        <section class="work section" id="work">
+            <h2 class="section-title">Projects</h2>
+
+            <div class="work__container bd-grid">
+                <div class="work__img">
+                    <img src="assets/img/projects-img/Linkit.jpg" alt="">
+                    <div class="content">
+                        <div class="content_title">
+                            <h4>Linkit</h4>
+                        </div>
+                        <div class="content_body">Users can store social media links and share there public link
+                        </div>
+                        <a href="https://github.com/tejaswankalluri/LinkIt-Frontend" target="_blank">github link</a>
+                        <a href="https://linkit.tejaswan.codes" target="_blank">project link</a>
+                    </div>
+                </div>
+
+                <div class="work__img">
+                    <img src="assets/img/projects-img/work-1.jpg" alt="">
+                    <div class="content">
+                        <div class="content_title">
+                            <h4>Covid tracker</h4>
+                        </div>
+                        <div class="content_body">This website is used to track covid cases</div>
+                        <a href="https://github.com/tejaswankalluri/covid19-tracker" target="_blank">github link</a>
+                        <a href="https://trackcovid2020.netlify.app/" target="_blank">project link</a>
+                    </div>
+                </div>
+                <div class="work__img">
+                    <img src="assets/img/projects-img/url-shortner.jpg" alt="">
+                    <div class="content">
+                        <div class="content_title">
+                            <h4>Url shortner</h4>
+                        </div>
+                        <div class="content_body">This website is used to shorten the long link</div>
+                        <a href="https://github.com/tejaswankalluri/react-url-shortner">github link</a>
+                        <a href="https://react-url-shortner.netlify.app/" target="_blank">project link</a>
+                    </div>
+                </div>
+                <div class="work__img">
+                    <img src="assets/img/projects-img/notes-app.jpg" alt="">
+                    <div class="content">
+                        <div class="content_title">
+                            <h4>Notes Web App</h4>
+                        </div>
+                        <div class="content_body">This website is used to store your notes </div>
+                        <a href="https://github.com/tejaswankalluri/node-notes-app">github link</a>
+                        <a href="https://ejs-notes-app.herokuapp.com/" target="_blank">project link</a>
+                    </div>
+                </div>
+                <div class="work__img">
+                    <img src="assets/img/projects-img/weather-app.jpg" alt="">
+                    <div class="content">
+                        <div class="content_title">
+                            <h4>Weather website</h4>
+                        </div>
+                        <div class="content_body">This website get weather of your location </div>
+                        <a href="https://github.com/tejaswankalluri/node-weather">github link</a>
+                        <a href="https://ejs-weatherapp.herokuapp.com/" target="_blank">project link</a>
+                    </div>
+                </div>
+                <div class="work__img">
+                    <img src="assets/img/projects-img/todo-list-app.jpg" alt="">
+                    <div class="content">
+                        <div class="content_title">
+                            <h4>Todo list Web App</h4>
+                        </div>
+                        <div class="content_body">This website is used to store todos</div>
+                        <a href="https://github.com/tejaswankalluri/node-todolist-login">github link</a>
+                        <a href="https://ejs-todo-login.herokuapp.com/" target="_blank">project link</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--===== CONTACT =====-->
+        <section class="contact section" id="contact">
+            <h2 class="section-title">Contact</h2>
+
+            <div class="contact__container bd-grid">
+                <!-- <form action="https://script.google.com/macros/s/AKfycbyzDeAl8UEx8irGg2BdXyd94oSxdsOLqSEi60PH/exec"
+                    class="contact__form" method="POST" data-email="example@email.net">
+                    <input type="text" placeholder="Name" class="contact__input" id="name">
+                    <input type="mail" placeholder="Email" class="contact__input" id="email">
+                    <textarea name="" id="" cols="0" rows="10" class="contact__input" id="message"></textarea>
+                    <input type="button" value="submit" class="contact__button button">
+                </form> -->
+                <form class="gform pure-form pure-form-stacked" method="POST" data-netlify-recaptcha="true"
+                    data-netlify="true">
+                    <!-- change the form action to your script url -->
+
+                    <div class="form-elements">
+                        <fieldset class="pure-group">
+                            <label for="name">Name: </label>
+                            <input id="name" name="name" placeholder="Your Name" />
+                        </fieldset>
+
+                        <fieldset class="pure-group">
+                            <label for="message">Message: </label>
+                            <textarea id="message" name="message" rows="5" cols="30"
+                                placeholder="Tell us what's on your mind..."></textarea>
+                        </fieldset>
+
+                        <fieldset class="pure-group">
+                            <label for="email"><em>Your</em> Email Address:</label>
+                            <input id="email" name="email" type="email" value="" required
+                                placeholder="your.name@email.com" />
+                        </fieldset>
+
+
+                        <fieldset class="pure-group honeypot-field" style="display: none;">
+                            <label for="honeypot">To help avoid spam, utilize a Honeypot technique with a hidden text
+                                field;
+                                must be empty to submit the form! Otherwise, we assume the user is a spam bot.</label>
+                            <input id="honeypot" type="text" name="honeypot" value="" />
+                        </fieldset>
+
+                        <button class="button-success pure-button button-xlarge" type="submit">
+                            <i class="fa fa-paper-plane"></i>&nbsp;Send</button>
+                        <fieldset class="pure-group">
+                            <div data-netlify-recaptcha="true"></div>
+                        </fieldset>
+                    </div>
+
+                    <!-- Customise the Thankyou Message People See when they submit the form: -->
+                    <div class="thankyou_message" style="display:none;">
+                        <h2><em>Thanks</em> for contacting me!
+                            I will get back to you soon!</h2>
+                    </div>
+
+                </form>
+            </div>
+        </section>
+        <Footer />
+    </main>
+
+    <!--===== FOOTER =====-->
+    <script data-cfasync="false" src="assets/js/form-submission-handler.js" is:inline></script>
+    <!--===== SCROLL REVEAL =====-->
+    <script src="https://unpkg.com/scrollreveal" is:inline></script>
+    <!--===== MAIN JS =====-->
+    <script src="assets/js/main.js" is:inline></script>
+</body>
+
+</html>

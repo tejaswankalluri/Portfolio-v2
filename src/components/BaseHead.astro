@@ -1,0 +1,52 @@
+---
+import "../styles/global.css"
+export interface Props {
+	title: string;
+	description : string;
+	image?: string;
+	content: metacontent
+}
+export enum metacontent {
+	index = "index",
+	noindex = "noindex",
+}
+const { title, description, image = "/public/assets/img/about.jpg" , content= "noindex"} = Astro.props;
+---
+
+<title>{title}</title>
+    <!-- =====BOX ICONS===== -->
+<link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/konpa/devicon@master/devicon.min.css">
+<!-- Global Metadata -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/assets/img/favicon.png" type="image/x-icon">
+<!--google domain verfication-->
+<meta name="google-site-verification" content="RY_AX27wZAcTP-SG1DKFsh3OLF_OxZHH7yo-xgnB_Us" />
+<!--  meta tag    -->
+<meta name="title" content="Tejaswan - My Portfolio">
+<meta name="description" content="This website is about me. Hi this is Tejaswan, I am a web developer">
+<meta name="keywords" content="tejaswan portfolio, tejaswan kalluri, tejaswan">
+<meta name="robots" content="index, follow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+<!-- Google / Search Engine Tags -->
+<meta itemprop="name" content="Tejaswan - My Portfolio">
+<meta itemprop="description" content={description}>
+<meta itemprop="image" content={image}>
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://tejaswan.codes">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tejaswan - My Portfolio">
+<meta property="og:description" content={description}>
+<meta property="og:image" content={image}>
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tejaswan - My Portfolio">
+<meta name="twitter:description" content={description}>
+<meta name="twitter:image" content={image}>
+

@@ -1,0 +1,27 @@
+---
+import "../styles/footer.css"
+const today = new Date();
+
+---
+
+<footer class="footer">
+	<p class="footer__title">Tejaswan</p>
+	<p>Contact Me</p>
+	<div class="footer__social">
+		<a href="https://www.instagram.com/tejaswan_techtoe/" class="footer__icon" target="_blank"><i
+				class='bx bxl-instagram'></i></a>
+		<a href="https://twitter.com/tejaswan1" class="footer__icon" target="_blank"><i
+				class='bx bxl-twitter'></i></a>
+		<a href="https://dev.to/tejaswan" class="footer__icon" target="_blank"><i class='bx bxl-dev-to'></i></a>
+		<a href="mailto:tejaswankalluri82522@gmail.com" class="footer__icon" target="_blank"><i
+				class='bx bx-mail-send'></i></a>
+	</div>
+	<p>&#169; {today.getFullYear()}</p>
+</footer>
+
+<style>
+	footer {
+		padding: 25px;
+		text-align: center;
+	}
+</style>
