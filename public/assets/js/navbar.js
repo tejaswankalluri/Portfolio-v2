@@ -24,3 +24,15 @@ function linkAction() {
     navMenu.classList.remove("show");
 }
 navLink.forEach((n) => n.addEventListener("click", linkAction));
+
+/*======= orignal page redirect ========*/
+
+function redirectpage() {
+    const redirect_card = document.querySelector("#redirect_nav");
+    const url = window.location.hostname;
+    if (url.includes("tejaswan.me") || url.includes("localhost"))
+        redirect_card.style.display = "none";
+    else redirect_card.style.display = "block";
+    console.log(url);
+}
+redirectpage();
