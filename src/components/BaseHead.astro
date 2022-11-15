@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css"
+import { SITE_URL } from "../config";
 export interface Props {
 	title: string;
 	description : string;
@@ -10,7 +11,22 @@ export enum metacontent {
 	index = "index",
 	noindex = "noindex",
 }
-const { title, description, image = "/public/assets/img/about.jpg" , content= "noindex"} = Astro.props;
+let { title, description, image = "/assets/img/about.jpg" , content= "noindex"} = Astro.props;
+
+// check for valid url
+function validURL(string) {
+	if(string.includes("http",0))
+		return true;
+  return false;
+};
+
+function CheckImageURL(){
+	if(validURL(image)){
+		return;
+	}
+	image = SITE_URL + image;
+}
+CheckImageURL();
 ---
 
 <title>{title}</title>
@@ -23,30 +39,28 @@ const { title, description, image = "/public/assets/img/about.jpg" , content= "n
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" href="/assets/img/favicon.png" type="image/x-icon">
-<!--google domain verfication-->
-<meta name="google-site-verification" content="RY_AX27wZAcTP-SG1DKFsh3OLF_OxZHH7yo-xgnB_Us" />
 <!--  meta tag    -->
-<meta name="title" content="Tejaswan - My Portfolio">
-<meta name="description" content="This website is about me. Hi this is Tejaswan, I am a web developer">
-<meta name="keywords" content="tejaswan portfolio, tejaswan kalluri, tejaswan">
+<meta name="title" content={title}>
+<meta name="description" content={description}>
+<meta name="keywords" content="tejaswan, tejaswan portfolio, tejaswan kalluri">
 <meta name="robots" content="index, follow">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="language" content="English">
 <!-- Google / Search Engine Tags -->
-<meta itemprop="name" content="Tejaswan - My Portfolio">
+<meta itemprop="name" content={title}>
 <meta itemprop="description" content={description}>
 <meta itemprop="image" content={image}>
 
 <!-- Facebook Meta Tags -->
-<meta property="og:url" content="https://tejaswan.codes">
+<meta property="og:url" content="https://tejaswan.me">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Tejaswan - My Portfolio">
+<meta property="og:title" content={title}>
 <meta property="og:description" content={description}>
 <meta property="og:image" content={image}>
 
 <!-- Twitter Meta Tags -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Tejaswan - My Portfolio">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content={title}>
 <meta name="twitter:description" content={description}>
 <meta name="twitter:image" content={image}>
 
