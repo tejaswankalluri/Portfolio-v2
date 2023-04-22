@@ -35,6 +35,5 @@ function redirectpage() {
   if (url.includes("tejaswan.me") || url.includes("localhost"))
     redirect_card.style.display = "none";
   else redirect_card.style.display = "block";
-  console.log(url);
 }
 redirectpage();

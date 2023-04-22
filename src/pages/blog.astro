@@ -66,7 +66,7 @@ let posts: [IBlog] = data.data.user.publication.posts;
     <Navbar />
     <!-- <Header /> -->
     <main>
-      <section class="bd-grid mt-24">
+      <section class="bd-grid my-24">
         <h1 class="md:mt-10 text-5xl font-BebasNeue">LATEST POSTS</h1>
         <hr />
         <div class="my-10 grid md:grid-cols-3 gap-6">
@@ -80,7 +80,7 @@ let posts: [IBlog] = data.data.user.publication.posts;
                     height="600"
                     src={post.coverImage}
                     class="overflow-hidden"
-                    alt=""
+                    alt={post.slug}
                   />
                 </a>
                 <div class="p-5 flex flex-col justify-between">
@@ -116,8 +116,14 @@ let posts: [IBlog] = data.data.user.publication.posts;
             ))
           }
         </div>
+        <a
+          href={`https://blog.tejaswan.me/`}
+          class="justify-self-center inline-flex items-center py-2 px-3 text-xl font-bold w-fit text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        >
+          View More
+        </a>
       </section>
+      <Footer />
     </main>
-    <Footer />
   </body>
 </html>
