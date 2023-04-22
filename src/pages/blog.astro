@@ -3,6 +3,8 @@ import BaseHead, { metacontent } from "../components/BaseHead.astro";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import { Picture } from "@astrojs/image/components";
+
 import "../styles/base.css";
 interface IBlog {
   title: string;
@@ -74,13 +76,12 @@ let posts: [IBlog] = data.data.user.publication.posts;
             posts.map((post) => (
               <div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md">
                 <a href={`https://blog.tejaswan.me/${post.slug}`}>
-                  <img
+                  <Picture
                     class="aspect-video bg-cover"
-                    width="600"
-                    height="600"
+                    widths={[200, 400, 600]}
                     src={post.coverImage}
-                    class="overflow-hidden"
                     alt={post.slug}
+                    aspectRatio={"16:9"}
                   />
                 </a>
                 <div class="p-5 flex flex-col justify-between">

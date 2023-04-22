@@ -4,6 +4,10 @@ import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 import "../styles/index.css";
+import { Picture } from "@astrojs/image/components";
+
+// Images
+import prefilImg from "../assets/img/perfil.png";
 ---
 
 <!DOCTYPE html>
@@ -40,18 +44,26 @@ import "../styles/index.css";
           <a
             href="https://www.linkedin.com/in/tejaswan-kalluri/"
             class="home__social-icon"
+            aria-label="Social Linkedin"
             ><i class="bx bxl-linkedin"></i>
           </a>
-          <a href="https://github.com/tejaswankalluri" class="home__social-icon"
+          <a
+            href="https://github.com/tejaswankalluri"
+            class="home__social-icon"
+            aria-label="Social Github"
             ><i class="bx bxl-github"></i>
           </a>
-          <a href="https://dev.to/tejaswan" class="home__social-icon"
+          <a
+            href="https://dev.to/tejaswan"
+            class="home__social-icon"
+            aria-label="Social Dev.to"
             ><i class="bx bxl-dev-to"></i>
           </a>
         </div>
 
         <div class="home__img">
-          <img src="assets/img/perfil.png" alt="" />
+          <!-- <img src="assets/img/perfil.png" alt="" /> -->
+          <Picture src={prefilImg} alt="prefilImg" widths={[200, 400, 800]} />
         </div>
       </section>
 
@@ -61,7 +73,13 @@ import "../styles/index.css";
 
         <div class="about__container bd-grid">
           <div class="about__img">
-            <img src="assets/img/about.jpg" alt="" />
+            <!-- <img src="assets/img/about.jpg" alt="" /> -->
+            <Picture
+              src={import("../assets/img/about.jpg")}
+              widths={[200, 400, 800]}
+              height={695}
+              alt="about"
+            />
           </div>
 
           <div>
@@ -220,7 +238,14 @@ import "../styles/index.css";
 
         <div class="work__container bd-grid">
           <div class="work__img">
-            <img src="assets/img/projects-img/Linkit.jpg" alt="" />
+            <!-- <img src="assets/img/projects-img/Linkit.jpg" alt="" /> -->
+            <Picture
+              src={import("../assets/img/projects-img/Linkit.jpg")}
+              widths={[200, 400, 800]}
+              height={}
+              alt="Linkit"
+            />
+
             <div class="content">
               <div class="content_title">
                 <h4>Linkit</h4>
@@ -239,7 +264,14 @@ import "../styles/index.css";
           </div>
 
           <div class="work__img">
-            <img src="assets/img/projects-img/work-1.jpg" alt="" />
+            <!-- <img src="assets/img/projects-img/work-1.jpg" alt="" /> -->
+            <Picture
+              src={import("../assets/img/projects-img/work-1.jpg")}
+              widths={[200, 400, 800]}
+              height={}
+              alt="work-1"
+            />
+
             <div class="content">
               <div class="content_title">
                 <h4>Covid tracker</h4>
@@ -257,7 +289,13 @@ import "../styles/index.css";
             </div>
           </div>
           <div class="work__img">
-            <img src="assets/img/projects-img/url-shortner.jpg" alt="" />
+            <!-- <img src="assets/img/projects-img/url-shortner.jpg" alt="" /> -->
+            <Picture
+              src={import("../assets/img/projects-img/url-shortner.jpg")}
+              widths={[200, 400, 800]}
+              height={}
+              alt="url-shortner"
+            />
             <div class="content">
               <div class="content_title">
                 <h4>Url shortner</h4>
@@ -274,7 +312,13 @@ import "../styles/index.css";
             </div>
           </div>
           <div class="work__img">
-            <img src="assets/img/projects-img/notes-app.jpg" alt="" />
+            <!-- <img src="assets/img/projects-img/notes-app.jpg" alt="" /> -->
+            <Picture
+              src={import("../assets/img/projects-img/notes-app.jpg")}
+              widths={[200, 400, 800]}
+              height={}
+              alt="notes-app"
+            />
             <div class="content">
               <div class="content_title">
                 <h4>Notes Web App</h4>
@@ -291,7 +335,13 @@ import "../styles/index.css";
             </div>
           </div>
           <div class="work__img">
-            <img src="assets/img/projects-img/weather-app.jpg" alt="" />
+            <!-- <img src="assets/img/projects-img/weather-app.jpg" alt="" /> -->
+            <Picture
+              src={import("../assets/img/projects-img/weather-app.jpg")}
+              widths={[200, 400, 800]}
+              height={}
+              alt="weather-app"
+            />
             <div class="content">
               <div class="content_title">
                 <h4>Weather website</h4>
@@ -308,7 +358,13 @@ import "../styles/index.css";
             </div>
           </div>
           <div class="work__img">
-            <img src="assets/img/projects-img/todo-list-app.jpg" alt="" />
+            <!-- <img src="assets/img/projects-img/todo-list-app.jpg" alt="" /> -->
+            <Picture
+              src={import("../assets/img/projects-img/todo-list-app.jpg")}
+              widths={[200, 400, 800]}
+              height={}
+              alt="todo-list-app"
+            />
             <div class="content">
               <div class="content_title">
                 <h4>Todo list Web App</h4>
