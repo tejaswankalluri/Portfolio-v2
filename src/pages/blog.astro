@@ -1,83 +1,123 @@
 ---
-import BaseHead, { metacontent } from '../components/BaseHead.astro';
-import Navbar from '../components/Navbar.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
-import "../styles/base.css"
-// Use Astro.glob() to fetch all posts, and then sort them by date.
-const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
-	(a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
-).filter((post) => !post.frontmatter.draft).slice(0,10);
+import BaseHead, { metacontent } from "../components/BaseHead.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import "../styles/base.css";
+interface IBlog {
+  title: string;
+  brief: string;
+  slug: string;
+  coverImage: string;
+  dataAdded: string;
+}
+let res = await fetch("https://api.hashnode.com/", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: import.meta.env.HASHNODE_TOKEN,
+  },
+  body: JSON.stringify({
+    query: `query {user(username: "tejaswan") {publication {posts(page: 0) {title brief slug coverImage dateAdded}}}}`,
+  }),
+});
+const data = await res.json();
+let posts: [IBlog] = data.data.user.publication.posts;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} content={metacontent.index}/>
-		<style>
-			hr {
-  				border-top: 1px solid #DDD;
-				margin: 1rem 0 3rem 0;
-			}
-			ul {
-				list-style-type: none;
-				padding: unset;
-			}
-			ul li {
-				display: flex;
-			}
-			ul li time {
-				flex: 0 0 130px;
-				font-style: italic;
-				color: #595959;
-			}
-			ul li a:visited {
-				color: #8e32dc;
-			}
-		</style>
-	</head>
-	<body>
-		<Navbar />
-		<!-- <Header /> -->
-		<main>
-			<section class="bd-grid mt-24">
-				<h1 class="md:mt-10 text-5xl font-BebasNeue">LATEST POSTS</h1>
-				<hr />
-				<div class="my-10 grid md:grid-cols-3 gap-6">
-					{posts.map((post) =>(
-					<div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md">
-						<a href={post.url}>
-							<img class="rounded-t-lg" width="600" height="600" src={post.frontmatter.heroImage} class="overflow-hidden"alt="">
-						</a>
-						<div class="p-5 flex flex-col">
-							<a href={post.url}>
-								<h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">{post.frontmatter.title}</h5>
-							</a>
-							<p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-ellipsis truncate">{post.frontmatter.description}</p>
-							<a href={post.url} class="justify-self-end inline-flex items-center py-2 px-3 text-sm font-medium w-fit text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-								Read more
-								<svg aria-hidden="true" class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-							</a>
-						</div>
-					</div>
-					))}
-				</div>
-				<!-- <ul>
-					{posts.map((post) => (
-						<li>
-							<time datetime={post.frontmatter.pubDate}>
-								{new Date(post.frontmatter.pubDate).toLocaleDateString('en-us', {
-									year: 'numeric',
-									month: 'short',
-									day: 'numeric',
-								})}
-							</time>
-							<a href={post.url}>{post.frontmatter.title}</a>
-						</li>
-					))}
-				</ul> -->
-			</section>
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <BaseHead
+      title={SITE_TITLE}
+      description={SITE_DESCRIPTION}
+      content={metacontent.index}
+    />
+    <style>
+      hr {
+        border-top: 1px solid #ddd;
+        margin: 1rem 0 3rem 0;
+      }
+      ul {
+        list-style-type: none;
+        padding: unset;
+      }
+      ul li {
+        display: flex;
+      }
+      ul li time {
+        flex: 0 0 130px;
+        font-style: italic;
+        color: #595959;
+      }
+      ul li a:visited {
+        color: #8e32dc;
+      }
+      .ellipsis {
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
+      }
+    </style>
+  </head>
+  <body>
+    <Navbar />
+    <!-- <Header /> -->
+    <main>
+      <section class="bd-grid mt-24">
+        <h1 class="md:mt-10 text-5xl font-BebasNeue">LATEST POSTS</h1>
+        <hr />
+        <div class="my-10 grid md:grid-cols-3 gap-6">
+          {
+            posts.map((post) => (
+              <div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md">
+                <a href={`https://blog.tejaswan.me/${post.slug}`}>
+                  <img
+                    class="aspect-video bg-cover"
+                    width="600"
+                    height="600"
+                    src={post.coverImage}
+                    class="overflow-hidden"
+                    alt=""
+                  />
+                </a>
+                <div class="p-5 flex flex-col justify-between">
+                  <a href={`https://blog.tejaswan.me/${post.slug}`}>
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+                      {post.title}
+                    </h5>
+                  </a>
+                  <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 ellipsis">
+                    {post.brief}
+                  </p>
+                  <a
+                    href={`https://blog.tejaswan.me/`}
+                    class="justify-self-end inline-flex items-center py-2 px-3 text-sm font-medium w-fit text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  >
+                    Read more
+                    <svg
+                      aria-hidden="true"
+                      class="ml-2 -mr-1 w-4 h-4"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </body>
 </html>

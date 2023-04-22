@@ -1,21 +1,21 @@
 /* ===== FOOTER =====*/
 .footer {
-    background-color: var(--second-color);
-    color: #fff;
-    text-align: center;
-    margin-top: auto;
-    font-weight: var(--font-semi);
-    padding: 1rem 0;
+  background-color: var(--second-color);
+  color: #fff;
+  text-align: center;
+  margin-top: auto;
+  font-weight: var(--font-semi);
+  padding: 1rem 0;
 }
 .footer__title {
-    font-size: 2rem;
-    margin-bottom: var(--mb-4);
+  font-size: 2rem;
+  margin-bottom: var(--mb-4);
 }
 .footer__social {
-    margin-bottom: var(--mb-4);
+  margin-bottom: var(--mb-4);
 }
 .footer__icon {
-    font-size: 1.5rem;
-    color: #fff;
-    margin: 0 var(--mb-2);
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 0 var(--mb-2);
 }

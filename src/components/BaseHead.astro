@@ -1,66 +1,84 @@
 ---
-import "../styles/global.css"
+import "../styles/global.css";
 import { SITE_URL } from "../config";
 export interface Props {
-	title: string;
-	description : string;
-	image?: string;
-	content: metacontent
+  title: string;
+  description: string;
+  image?: string;
+  content: metacontent;
 }
 export enum metacontent {
-	index = "index",
-	noindex = "noindex",
+  index = "index",
+  noindex = "noindex",
 }
-let { title, description, image = "/assets/img/about.jpg" , content= "noindex"} = Astro.props;
+let {
+  title,
+  description,
+  image = "/assets/img/about.jpg",
+  content = "noindex",
+} = Astro.props;
 
 // check for valid url
 function validURL(string) {
-	if(string.includes("http",0))
-		return true;
+  if (string.includes("http", 0)) return true;
   return false;
-};
+}
 
-function CheckImageURL(){
-	if(validURL(image)){
-		return;
-	}
-	image = SITE_URL + image;
+function CheckImageURL() {
+  if (validURL(image)) {
+    return;
+  }
+  image = SITE_URL + image;
 }
 CheckImageURL();
 ---
 
 <title>{title}</title>
-    <!-- =====BOX ICONS===== -->
-<link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
-<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/konpa/devicon@master/devicon.min.css">
+<!-- =====BOX ICONS===== -->
+<link
+  href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css"
+  rel="stylesheet"
+/>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/purecss@1.0.0/build/pure-min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/konpa/devicon@master/devicon.min.css"
+/>
 <!-- Global Metadata -->
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="shortcut icon" href="/assets/img/favicon.png" type="image/x-icon">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="/assets/img/favicon.png" type="image/x-icon" />
 <!--  meta tag    -->
-<meta name="title" content={title}>
-<meta name="description" content={description}>
-<meta name="keywords" content="tejaswan, tejaswan portfolio, tejaswan kalluri">
-<meta name="robots" content="index, follow">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="language" content="English">
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+<meta
+  name="keywords"
+  content="tejaswan, tejaswan portfolio, tejaswan kalluri"
+/>
+<meta name="robots" content="index, follow" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="language" content="English" />
 <!-- Google / Search Engine Tags -->
-<meta itemprop="name" content={title}>
-<meta itemprop="description" content={description}>
-<meta itemprop="image" content={image}>
+<meta itemprop="name" content={title} />
+<meta itemprop="description" content={description} />
+<meta itemprop="image" content={image} />
 
 <!-- Facebook Meta Tags -->
-<meta property="og:url" content="https://tejaswan.me">
-<meta property="og:type" content="website">
-<meta property="og:title" content={title}>
-<meta property="og:description" content={description}>
-<meta property="og:image" content={image}>
+<meta property="og:url" content="https://tejaswan.me" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={image} />
 
 <!-- Twitter Meta Tags -->
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content={title}>
-<meta name="twitter:description" content={description}>
-<meta name="twitter:image" content={image}>
-
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={image} />

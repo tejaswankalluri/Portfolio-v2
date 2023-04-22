@@ -8,15 +8,24 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "format:check": "prettier --check .",
+    "format:write": "prettier --write ."
   },
   "dependencies": {
-    "@astrojs/mdx": "^0.11.4",
-    "@astrojs/rss": "^1.0.2",
     "@astrojs/sitemap": "^1.0.0",
-    "@astrojs/tailwind": "^2.0.2",
-    "astro": "^1.4.6",
-    "rehype-add-classes": "^1.0.0",
+    "@astrojs/tailwind": "^3.1.1",
+    "astro": "^2.3.0",
     "tailwindcss": "^3.1.8"
+  },
+  "devDependencies": {
+    "eslint": "^8.39.0",
+    "eslint-plugin-astro": "^0.26.1",
+    "prettier": "^2.8.7"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": "use Yarn insted",
+    "yarn": ">=1.2.0"
   }
 }
