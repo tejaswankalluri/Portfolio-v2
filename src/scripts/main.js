@@ -1,9 +1,10 @@
 /* eslint-disable */
+import ScrollReveal from "scrollreveal";
 /*===== SCROLL REVEAL ANIMATION =====*/
 const sr = ScrollReveal({
   origin: "top",
-  distance: "80px",
-  duration: 1500,
+  distance: "100px",
+  duration: 1300,
 });
 
 /*SCROLL HOME*/

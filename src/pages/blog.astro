@@ -3,9 +3,9 @@ import BaseHead, { metacontent } from "../components/BaseHead.astro";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
-import { Picture } from "@astrojs/image/components";
 
 import "../styles/base.css";
+import { Image } from "astro:assets";
 interface IBlog {
   title: string;
   brief: string;
@@ -76,12 +76,12 @@ let posts: [IBlog] = data.data.user.publication.posts;
             posts.map((post) => (
               <div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md">
                 <a href={`https://blog.tejaswan.me/${post.slug}`}>
-                  <Picture
+                  <Image
                     class="aspect-video bg-cover"
-                    widths={[200, 400, 600]}
                     src={post.coverImage}
                     alt={post.slug}
-                    aspectRatio={"16:9"}
+                    height={600}
+                    width={600}
                   />
                 </a>
                 <div class="p-5 flex flex-col justify-between">

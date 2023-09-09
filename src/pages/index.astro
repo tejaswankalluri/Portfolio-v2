@@ -3,11 +3,17 @@ import BaseHead, { metacontent } from "../components/BaseHead.astro";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
+import { Image } from 'astro:assets';
 import "../styles/index.css";
-import { Picture } from "@astrojs/image/components";
-
 // Images
-import prefilImg from "../assets/img/perfil.png";
+import PrefilImg from "../assets/img/perfil.png";
+import AboutImg from "../assets/img/about.jpg";
+import ProjectOneImg from "../assets/img/projects-img/Linkit.jpg";
+import ProjectTwoImg from "../assets/img/projects-img/notes-app.jpg";
+import ProjectThreeImg from "../assets/img/projects-img/todo-list-app.jpg";
+import ProjectFourImg from "../assets/img/projects-img/url-shortner.jpg";
+import ProjectFiveImg from "../assets/img/projects-img/weather-app.jpg";
+import ProjectWorkOne from "../assets/img/projects-img/work-1.jpg";
 ---
 
 <!DOCTYPE html>
@@ -62,8 +68,9 @@ import prefilImg from "../assets/img/perfil.png";
         </div>
 
         <div class="home__img">
-          <!-- <img src="assets/img/perfil.png" alt="" /> -->
-          <Picture src={prefilImg} alt="prefilImg" widths={[200, 400, 800]} />
+          <!-- <Picture src={prefilImg} alt="prefilImg" widths={[200, 400, 800]} /> -->
+          <Image src={PrefilImg} alt="Profile Image"/>
+
         </div>
       </section>
 
@@ -73,13 +80,7 @@ import prefilImg from "../assets/img/perfil.png";
 
         <div class="about__container bd-grid">
           <div class="about__img">
-            <!-- <img src="assets/img/about.jpg" alt="" /> -->
-            <Picture
-              src={import("../assets/img/about.jpg")}
-              widths={[200, 400, 800]}
-              height={695}
-              alt="about"
-            />
+            <Image src={AboutImg} alt="about image"/>
           </div>
 
           <div>
@@ -238,13 +239,7 @@ import prefilImg from "../assets/img/perfil.png";
 
         <div class="work__container bd-grid">
           <div class="work__img">
-            <!-- <img src="assets/img/projects-img/Linkit.jpg" alt="" /> -->
-            <Picture
-              src={import("../assets/img/projects-img/Linkit.jpg")}
-              widths={[200, 400, 800]}
-              height={}
-              alt="Linkit"
-            />
+            <Image src={ProjectOneImg} alt="Linkit"/>
 
             <div class="content">
               <div class="content_title">
@@ -264,13 +259,8 @@ import prefilImg from "../assets/img/perfil.png";
           </div>
 
           <div class="work__img">
-            <!-- <img src="assets/img/projects-img/work-1.jpg" alt="" /> -->
-            <Picture
-              src={import("../assets/img/projects-img/work-1.jpg")}
-              widths={[200, 400, 800]}
-              height={}
-              alt="work-1"
-            />
+
+            <Image src={ProjectWorkOne} alt="work-1"/>
 
             <div class="content">
               <div class="content_title">
@@ -289,13 +279,7 @@ import prefilImg from "../assets/img/perfil.png";
             </div>
           </div>
           <div class="work__img">
-            <!-- <img src="assets/img/projects-img/url-shortner.jpg" alt="" /> -->
-            <Picture
-              src={import("../assets/img/projects-img/url-shortner.jpg")}
-              widths={[200, 400, 800]}
-              height={}
-              alt="url-shortner"
-            />
+            <Image src={ProjectFourImg} alt="work-2"/>
             <div class="content">
               <div class="content_title">
                 <h4>Url shortner</h4>
@@ -312,13 +296,7 @@ import prefilImg from "../assets/img/perfil.png";
             </div>
           </div>
           <div class="work__img">
-            <!-- <img src="assets/img/projects-img/notes-app.jpg" alt="" /> -->
-            <Picture
-              src={import("../assets/img/projects-img/notes-app.jpg")}
-              widths={[200, 400, 800]}
-              height={}
-              alt="notes-app"
-            />
+            <Image src={ProjectTwoImg} alt="notes-app"/>
             <div class="content">
               <div class="content_title">
                 <h4>Notes Web App</h4>
@@ -335,13 +313,7 @@ import prefilImg from "../assets/img/perfil.png";
             </div>
           </div>
           <div class="work__img">
-            <!-- <img src="assets/img/projects-img/weather-app.jpg" alt="" /> -->
-            <Picture
-              src={import("../assets/img/projects-img/weather-app.jpg")}
-              widths={[200, 400, 800]}
-              height={}
-              alt="weather-app"
-            />
+            <Image src={ProjectFiveImg} alt="weather-app"/>
             <div class="content">
               <div class="content_title">
                 <h4>Weather website</h4>
@@ -358,13 +330,7 @@ import prefilImg from "../assets/img/perfil.png";
             </div>
           </div>
           <div class="work__img">
-            <!-- <img src="assets/img/projects-img/todo-list-app.jpg" alt="" /> -->
-            <Picture
-              src={import("../assets/img/projects-img/todo-list-app.jpg")}
-              widths={[200, 400, 800]}
-              height={}
-              alt="todo-list-app"
-            />
+            <Image src={ProjectThreeImg} alt="todo-list-app"/>
             <div class="content">
               <div class="content_title">
                 <h4>Todo list Web App</h4>
@@ -441,8 +407,6 @@ import prefilImg from "../assets/img/perfil.png";
       <Footer />
     </main>
 
-    <!--===== SCROLL REVEAL =====-->
-    <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js" is:inline></script>
     <!--===== MAIN JS =====-->
     <script>
       import "../scripts/main.js";

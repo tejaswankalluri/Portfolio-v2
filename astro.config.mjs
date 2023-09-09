@@ -1,7 +1,6 @@
-import { defineConfig } from "astro/config";
+import { defineConfig, squooshImageService } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
-import image from "@astrojs/image";
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,8 +12,8 @@ export default defineConfig({
         applyBaseStyles: false,
       },
     }),
-    image({
-      serviceEntryPoint: "@astrojs/image/sharp",
-    }),
   ],
+  image: {
+    service: squooshImageService(),
+  },
 });
