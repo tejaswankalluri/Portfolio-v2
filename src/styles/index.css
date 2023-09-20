@@ -149,10 +149,11 @@
 .work__img .content {
   margin: 5px 20px;
 }
-.work__img .content h4 {
+.work__img .content .content_title {
   margin: 10px 0px;
   text-transform: capitalize;
   font-size: 20px;
+  font-weight: 600;
 }
 .work__img .content .content_body {
   margin: 1px;
