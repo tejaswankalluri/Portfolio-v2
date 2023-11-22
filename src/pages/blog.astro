@@ -13,18 +13,19 @@ interface IBlog {
   coverImage: string;
   dataAdded: string;
 }
-let res = await fetch("https://api.hashnode.com/", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-    Authorization: import.meta.env.HASHNODE_TOKEN,
-  },
-  body: JSON.stringify({
-    query: `query {user(username: "tejaswan") {publication {posts(page: 0) {title brief slug coverImage dateAdded}}}}`,
-  }),
-});
-const data = await res.json();
-let posts: [IBlog] = data.data.user.publication.posts;
+// let res = await fetch("https://api.hashnode.com/", {
+//   method: "POST",
+//   headers: {
+//     "Content-Type": "application/json",
+//     Authorization: import.meta.env.HASHNODE_TOKEN,
+//   },
+//   body: JSON.stringify({
+//     query: `query {user(username: "tejaswan") {publication {posts(page: 0) {title brief slug coverImage dateAdded}}}}`,
+//   }),
+// });
+// const data = await res.text();
+// let posts: [IBlog] = data.data.user.publication.posts;
+
 ---
 
 <!doctype html>
