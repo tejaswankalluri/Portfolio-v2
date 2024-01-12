@@ -25,7 +25,6 @@ interface IBlog {
 // });
 // const data = await res.text();
 // let posts: [IBlog] = data.data.user.publication.posts;
-
 ---
 
 <!doctype html>
@@ -72,7 +71,7 @@ interface IBlog {
       <section class="bd-grid my-24">
         <h1 class="md:mt-10 text-5xl font-BebasNeue">LATEST POSTS</h1>
         <hr />
-        <div class="my-10 grid md:grid-cols-3 gap-6">
+        <!-- <div class="my-10 grid md:grid-cols-3 gap-6">
           {
             posts.map((post) => (
               <div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md">
@@ -117,7 +116,7 @@ interface IBlog {
               </div>
             ))
           }
-        </div>
+        </div> -->
         <a
           href={`https://blog.tejaswan.me/`}
           class="justify-self-center inline-flex items-center py-2 px-3 text-xl font-bold w-fit text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
